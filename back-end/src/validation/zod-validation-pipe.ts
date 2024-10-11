@@ -1,8 +1,4 @@
-import {
-  PipeTransform,
-  ArgumentMetadata,
-  BadRequestException,
-} from '@nestjs/common';
+import { BadRequestException, PipeTransform } from '@nestjs/common';
 import { ZodSchema } from 'zod';
 
 // Reponsável por validar os dados com o Zod
