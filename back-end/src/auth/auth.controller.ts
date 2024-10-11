@@ -1,12 +1,16 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UsePipes } from '@nestjs/common';
+import { ZodValidationPipe } from 'src/validation/zod-validation-pipe';
 import { AuthService } from './auth.service';
+import { SignInDto, signInSchema } from './dto/sign-in.dto';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post()
-  signIn(@Body() signInDto) {
+  @Post('/sign-in')
+  @UsePipes(new ZodValidationPipe(signInSchema))
+  // Responsável pela autenticação do usuário
+  signIn(@Body() signInDto: SignInDto) {
     return this.authService.signIn(signInDto);
   }
 }
