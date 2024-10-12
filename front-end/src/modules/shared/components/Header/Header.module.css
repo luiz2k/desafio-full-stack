@@ -1,0 +1,12 @@
+.header {
+  background-color: white;
+  max-width: 48rem;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

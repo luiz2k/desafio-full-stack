@@ -1,0 +1,9 @@
+.button {
+  margin-left: auto;
+  padding: 0.25rem !important;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
