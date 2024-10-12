@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { SignInSchema, signInSchema } from "../schemas/signInSchema";
-import { signIn } from "../services/signIn";
+import { signIn } from "../actions";
 import s from "./SignIn.module.css";
 
 export function SignIn() {

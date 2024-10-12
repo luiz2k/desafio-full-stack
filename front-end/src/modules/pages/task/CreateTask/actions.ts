@@ -1,8 +1,8 @@
 "use server";
 
-import { cookies } from "next/headers";
-import { CreateTaskSchema } from "../schemas/CreateTaskSchema";
 import { revalidateTag } from "next/cache";
+import { cookies } from "next/headers";
+import { CreateTaskSchema } from "./schemas/CreateTaskSchema";
 
 const API_URL = process.env.API_URL;
 
@@ -20,6 +20,7 @@ export const createTask = async (newTask: CreateTaskSchema) => {
 
   const data = await response.json();
 
+  // Atualiza o cache de tarefas
   revalidateTag("tasks");
 
   return data;

@@ -7,8 +7,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signUpSchema, SignUpSchema } from "../schemas/signUpSchema";
-import { signUp } from "../services/signUp";
+
 import s from "./SignUp.module.css";
+import { signUp } from "../actions";
 
 export function SignUp() {
   const [message, setMessage] = useState({

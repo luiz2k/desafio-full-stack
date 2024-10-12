@@ -2,7 +2,7 @@
 
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
-import { UpdateTaskSchema } from "../schemas/updateTaskSchema";
+import { UpdateTaskSchema } from "./schemas/updateTaskSchema";
 
 const API_URL = process.env.API_URL;
 

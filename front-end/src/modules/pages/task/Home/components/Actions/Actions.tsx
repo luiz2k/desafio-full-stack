@@ -4,7 +4,7 @@ import { Modal } from "@/modules/shared/components/Modal/Modal";
 import { Pencil, Trash2 } from "lucide-react";
 import s from "./Actions.module.css";
 import { useState } from "react";
-import { deleteTask, editTask } from "../../actions/actions";
+import { deleteTask, editTask } from "../../actions";
 import { LabelWithInput } from "@/modules/shared/components/LabelWithInput/LabelWithInput";
 import { useForm } from "react-hook-form";
 import {

@@ -9,8 +9,8 @@ import {
   CreateTaskSchema,
 } from "../../schemas/CreateTaskSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createTask } from "../../actions/actions";
 import { useRouter } from "next/navigation";
+import { createTask } from "../../actions";
 
 // Componente para criar uma nova tarefa
 export default function CreateTask() {
