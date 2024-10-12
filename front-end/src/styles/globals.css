@@ -1,5 +1,12 @@
 html {
-  background-color: #f1f5f9;
+  background: rgb(100, 116, 139);
+  background: linear-gradient(
+    180deg,
+    rgba(100, 116, 139, 1) 0%,
+    rgba(241, 245, 249, 1) 100%
+  );
+  background-repeat: no-repeat;
+  height: 100%;
 }
 
 a {
