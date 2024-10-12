@@ -1,0 +1,35 @@
+.section {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  max-width: 25rem;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+
+  display: grid;
+  gap: 2rem;
+}
+
+.a_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.header {
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
+}
