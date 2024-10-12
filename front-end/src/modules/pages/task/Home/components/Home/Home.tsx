@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllTasks } from "../../services/getAllTasks";
 import { Actions } from "../Actions/Actions";
-import s from "./HomePage.module.css";
+import s from "./Home.module.css";
 
 export default async function Home() {
   const tasks = await getAllTasks();
@@ -16,14 +16,6 @@ export default async function Home() {
 
       <div className={s.tasks_container}>
         <h3>Tarefas</h3>
-
-        {/* {tasks.data.map((task) => (
-          <article key={task.id} className={s.task_container}>
-            <p>{task.title}</p>
-
-            <Actions id={task.id} />
-          </article>
-        ))} */}
 
         {tasks.data.length ? (
           <>
