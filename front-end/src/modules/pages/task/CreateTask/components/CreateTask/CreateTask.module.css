@@ -1,0 +1,28 @@
+.container {
+  max-width: 25rem;
+  width: 100%;
+  background-color: white;
+  margin: auto;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  display: grid;
+  gap: 2rem;
+}
+
+.header {
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.a_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form {
+  display: grid;
+  row-gap: 1rem;
+}
