@@ -13,6 +13,14 @@ a {
 
 button {
   border: none;
+  background-color: unset;
+  cursor: pointer;
+}
+
+.button_style_1 {
+  background-color: #64748b;
+  color: white;
+  border: none;
   padding: 0.5rem 1rem;
   transition: opacity 0.2s;
   cursor: pointer;
