@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 import { Roboto } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "",
+  title: "Tarefas",
   description: "",
 };
 
@@ -20,7 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={roboto.className}>
-      <body>{children}</body>
+      <body>
+        <main>
+          <div>{children}</div>
+        </main>
+      </body>
     </html>
   );
 }
