@@ -1,0 +1,44 @@
+.container {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  color: black;
+}
+
+.modal {
+  max-width: 25rem;
+  width: 100%;
+  background-color: white;
+  margin: auto;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  display: grid;
+  gap: 2rem;
+
+  position: relative;
+}
+.header {
+  text-align: center;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.a_button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.close {
+  width: fit-content;
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  cursor: pointer;
+}
