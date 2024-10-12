@@ -1,0 +1,9 @@
+.input_label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+.small_warning {
+  color: crimson;
+}
