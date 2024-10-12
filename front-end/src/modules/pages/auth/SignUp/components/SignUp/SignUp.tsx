@@ -6,10 +6,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { signUpSchema, SignUpSchema } from "../schemas/signUpSchema";
+import { signUpSchema, SignUpSchema } from "../../schemas/signUpSchema";
 
 import s from "./SignUp.module.css";
-import { signUp } from "../actions";
+import { signUp } from "../../actions";
 
 export function SignUp() {
   const [message, setMessage] = useState({
