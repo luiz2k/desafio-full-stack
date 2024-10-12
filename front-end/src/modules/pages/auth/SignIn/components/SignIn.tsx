@@ -82,7 +82,9 @@ export function SignIn() {
 
           <div className={s.a_button}>
             <Link href="/signup">Registro</Link>
-            <button type="submit">Enviar</button>
+            <button type="submit" className="button_style_1">
+              Enviar
+            </button>
           </div>
         </form>
       </div>

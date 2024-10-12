@@ -1,3 +1,3 @@
-import SignUpPage from "@/modules/auth/pages/SignUp";
+import { SignUpPage } from "@/modules/pages/auth/SignUp";
 
 export default SignUpPage;

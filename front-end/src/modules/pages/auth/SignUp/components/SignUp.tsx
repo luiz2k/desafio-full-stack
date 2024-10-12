@@ -67,7 +67,9 @@ export function SignUp() {
 
           <div className={s.a_button}>
             <Link href="/signin">Entrar</Link>
-            <button type="submit">Enviar</button>
+            <button type="submit" className="button_style_1">
+              Enviar
+            </button>
           </div>
         </form>
       </div>
