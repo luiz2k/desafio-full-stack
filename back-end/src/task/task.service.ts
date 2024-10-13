@@ -10,7 +10,7 @@ export class TaskService {
   // Cria uma tarefa
   async create(userId: number, createTaskDto: CreateTaskDto) {
     // Cria uma tarefa com o ID do usuário
-    const task = await this.prisma.taks.create({
+    const task = await this.prisma.tasks.create({
       data: {
         title: createTaskDto.title,
         userId: userId,
@@ -26,7 +26,7 @@ export class TaskService {
   // Obtém todas as tarefas de um usuário
   async findAll(userId: number) {
     // Busca todas as tarefas do usuário
-    const tasks = await this.prisma.taks.findMany({
+    const tasks = await this.prisma.tasks.findMany({
       where: {
         userId: userId,
       },
@@ -40,7 +40,7 @@ export class TaskService {
 
   // Atualiza uma tarefa
   async update(userId: number, taskId: number, updateTaskDto: UpdateTaskDto) {
-    const taskExists = await this.prisma.taks.findUnique({
+    const taskExists = await this.prisma.tasks.findUnique({
       where: {
         id: taskId,
         userId: userId,
@@ -54,7 +54,7 @@ export class TaskService {
     }
 
     // Atualiza a tarefa pelo ID da tarefa e pelo ID do usuário
-    const updatedTask = await this.prisma.taks.update({
+    const updatedTask = await this.prisma.tasks.update({
       where: {
         id: taskId,
         userId: userId,
@@ -73,7 +73,7 @@ export class TaskService {
   // Faz a remoção de uma tarefa
   async remove(userId: number, taskId: number) {
     // Busca pelo ID da tarefa e pelo ID do usuário
-    const task = await this.prisma.taks.findUnique({
+    const task = await this.prisma.tasks.findUnique({
       where: {
         id: taskId,
         userId: userId,
@@ -88,7 +88,7 @@ export class TaskService {
     }
 
     // Remove a tarefa
-    const deletedTask = await this.prisma.taks.delete({
+    const deletedTask = await this.prisma.tasks.delete({
       where: {
         id: taskId,
       },

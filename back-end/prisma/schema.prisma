@@ -12,10 +12,10 @@ model User {
   email    String @unique
   password String
 
-  Taks Taks[]
+  Tasks Tasks[]
 }
 
-model Taks {
+model Tasks {
   id    Int    @id @default(autoincrement())
   title String
 
