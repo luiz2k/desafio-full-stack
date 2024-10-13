@@ -11,6 +11,7 @@ import { signUpSchema, SignUpSchema } from "../../schemas/signUpSchema";
 import s from "./SignUp.module.css";
 import { signUp } from "../../actions";
 
+// Responsável por acessar uma conta
 export function SignUp() {
   const [message, setMessage] = useState({
     message: "Preencha os dados para criar sua conta",
@@ -25,13 +26,18 @@ export function SignUp() {
 
   const onSubmit = async (data: SignUpSchema) => {
     try {
-      await signUp(data);
+      const response = await signUp(data);
+
+      if (response.error) {
+        throw new Error(response.message);
+      }
 
       router.push("/signin?status=created");
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "Ocorreu um erro inesperado.";
 
+      // Define a mensagem de erro
       setMessage({ message: errorMessage, color: "crimson" });
     }
   };

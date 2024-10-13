@@ -10,6 +10,7 @@ import { SignInSchema, signInSchema } from "../schemas/signInSchema";
 import { signIn } from "../actions";
 import s from "./SignIn.module.css";
 
+// Responsável por acessar uma conta
 export function SignIn() {
   const searchParams = useSearchParams();
   const params = searchParams.get("status") as "created" | "expired";
@@ -43,13 +44,18 @@ export function SignIn() {
 
   const onSubmit = async (data: SignInSchema) => {
     try {
-      await signIn(data);
+      const response = await signIn(data);
+
+      if (response.error) {
+        throw new Error(response.message);
+      }
 
       router.push("/");
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "Ocorreu um erro inesperado.";
 
+      // Define a mensagem de erro
       setMessage({ message: errorMessage, color: "crimson" });
     }
   };
