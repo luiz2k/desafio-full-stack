@@ -9,7 +9,12 @@
 npm install
 ```
 
-4 - Inicie a aplicação
+4 - Faça a build da aplicação
+```
+npm run build
+```
+
+5 - Inicie a aplicação
 ```
 npm start
 ```

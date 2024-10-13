@@ -21,12 +21,21 @@ npm install
 npx prisma migrate deploy
 ```
 
-6 - Inicie a aplicação
+6 - Faça a build da aplicação
+```
+npm run build
+```
+
+7 - Inicie a aplicação
 ```
 npm start
 ```
 
+
+
 ---
+
+
 
 ### FRONT-END
 
@@ -39,7 +48,12 @@ npm start
 npm install
 ```
 
-4 - Inicie a aplicação
+4 - Faça a build da aplicação
+```
+npm run build
+```
+
+5 - Inicie a aplicação
 ```
 npm start
 ```

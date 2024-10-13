@@ -19,7 +19,12 @@ npm install
 npx prisma migrate deploy
 ```
 
-6 - Inicie a aplicação
+6 - Faça a build da aplicação
+```
+npm run build
+```
+
+7 - Inicie a aplicação
 ```
 npm start
 ```
