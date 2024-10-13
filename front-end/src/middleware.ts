@@ -28,12 +28,12 @@ export function middleware(request: NextRequest) {
 
   // Se for uma rota protegida, e estiver sem um token, redireciona para a rota de login
   if (protectedRoutes.includes(pathname) && !token) {
-    return NextResponse.rewrite(new URL("/signin", request.url));
+    return NextResponse.redirect(new URL("/signin", request.url));
   }
 
   // Se não for um rota protegida, e tiver um token, redireciona para a rota principal
   if (!protectedRoutes.includes(pathname) && token) {
-    return NextResponse.rewrite(new URL("/", request.url));
+    return NextResponse.redirect(new URL("/", request.url));
   }
 }
 
