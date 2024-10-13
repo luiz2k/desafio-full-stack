@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 const API_URL = process.env.API_URL;
 
 // Apaga uma tarefa
-export const deleteTask = async (id: number) => {
+export const deleteTask = async (id: number): Promise<void> => {
   const response = await fetch(`${API_URL}/task/${id}`, {
     method: "DELETE",
     headers: {
@@ -25,12 +25,13 @@ export const deleteTask = async (id: number) => {
   }
 
   revalidateTag("tasks");
-
-  return data;
 };
 
 // Edita uma tarefa
-export const editTask = async (id: number, newTitle: UpdateTaskSchema) => {
+export const editTask = async (
+  id: number,
+  newTitle: UpdateTaskSchema,
+): Promise<void> => {
   const response = await fetch(`${API_URL}/task/${id}`, {
     method: "PUT",
     headers: {
@@ -46,7 +47,10 @@ export const editTask = async (id: number, newTitle: UpdateTaskSchema) => {
 
   const data = await response.json();
 
-  revalidateTag("tasks");
+  // Se o token expirou, envia para a rota de login
+  if (response.status === 401 && data.message === "Não autorizado") {
+    redirect(`/signin?status=expired`);
+  }
 
-  return data;
+  revalidateTag("tasks");
 };
