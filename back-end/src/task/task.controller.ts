@@ -28,11 +28,11 @@ export class TaskController {
 
   @Post()
   // Cria uma tarefa
-  create(
+  async create(
     @Request() req: Req,
     @Body(new ZodValidationPipe(createTaskSchema)) createTaskDto: CreateTaskDto,
   ) {
-    const task = this.taskService.create(req.user.id, createTaskDto);
+    const task = await this.taskService.create(req.user.id, createTaskDto);
 
     return {
       message: 'Tarefa criada',
@@ -42,8 +42,8 @@ export class TaskController {
 
   @Get()
   // Obtém todas as tarefas de um usuário
-  findAll(@Request() req: Req) {
-    const tasks = this.taskService.findAll(req.user.id);
+  async findAll(@Request() req: Req) {
+    const tasks = await this.taskService.findAll(req.user.id);
 
     return {
       message: 'Tarefas encontradas',
@@ -53,12 +53,12 @@ export class TaskController {
 
   @Put(':id')
   // Atualiza uma tarefa
-  update(
+  async update(
     @Param('id') id: string,
     @Request() req: Req,
     @Body(new ZodValidationPipe(updateTaskSchema)) updateTaskDto: UpdateTaskDto,
   ) {
-    const updatedTask = this.taskService.update(
+    const updatedTask = await this.taskService.update(
       req.user.id,
       +id,
       updateTaskDto,
@@ -72,8 +72,8 @@ export class TaskController {
 
   @Delete(':id')
   // Faz a remoção de uma tarefa
-  remove(@Request() req: Req, @Param('id') id: string) {
-    const deletedTask = this.taskService.remove(req.user.id, +id);
+  async remove(@Request() req: Req, @Param('id') id: string) {
+    const deletedTask = await this.taskService.remove(req.user.id, +id);
 
     return {
       message: 'Tarefa removida',
