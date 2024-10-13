@@ -5,12 +5,12 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   // Cria um usuário
   async create(createUserDto: CreateUserDto) {
     // Verifica se o usuário existe no banco de dados
-    const userExists = await this.prismaService.user.findUnique({
+    const userExists = await this.prisma.user.findUnique({
       where: {
         email: createUserDto.email,
       },
@@ -29,7 +29,7 @@ export class UserService {
     const hashPassword = await bcrypt.hash(createUserDto.password, SALT);
 
     // Cria um novo usuário com o e-mail e a senha criptografada
-    const user = await this.prismaService.user.create({
+    const user = await this.prisma.user.create({
       data: {
         email: createUserDto.email,
         password: hashPassword,

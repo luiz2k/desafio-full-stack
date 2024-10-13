@@ -8,13 +8,13 @@ import { SignInDto } from './dto/sign-in.dto';
 export class AuthService {
   constructor(
     private readonly jwtService: JwtService,
-    private readonly prismaService: PrismaService,
+    private readonly prisma: PrismaService,
   ) {}
 
   // Responsável pela autenticação do usuário
   async signIn(signInDto: SignInDto) {
     // Verifica se o usuário existe no banco de dados
-    const userExists = await this.prismaService.user.findUnique({
+    const userExists = await this.prisma.user.findUnique({
       where: {
         email: signInDto.email,
       },
