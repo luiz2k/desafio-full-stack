@@ -1,14 +1,7 @@
 import React from "react";
 import s from "./Modal.module.css";
 import { X } from "lucide-react";
-
-type ModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  desc: string;
-  children: React.ReactNode;
-};
+import { ModalProps } from "./types";
 
 // Modal reutilizado
 export function Modal({ isOpen, onClose, title, desc, children }: ModalProps) {

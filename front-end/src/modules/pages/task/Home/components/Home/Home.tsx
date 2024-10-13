@@ -2,16 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { UpdateTaskSchema } from "../../schemas/updateTaskSchema";
-import { Tasks } from "../../services/getAllTasks";
 import { Actions } from "../Actions/Actions";
 import s from "./Home.module.css";
-
-type HomeProps = {
-  getAllTasks: () => Promise<Tasks>;
-  deleteTask: (id: number) => Promise<void>;
-  editTask: (id: number, newTitle: UpdateTaskSchema) => Promise<void>;
-};
+import { HomeProps } from "./types";
+import { Tasks } from "../../services/types";
 
 export function Home({ getAllTasks, deleteTask, editTask }: HomeProps) {
   const [tasks, setTasks] = useState<Tasks>({ message: "", data: [] });

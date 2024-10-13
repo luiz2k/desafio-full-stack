@@ -1,16 +1,8 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { Tasks } from "./types";
 
 const API_URL = process.env.API_URL;
-
-export type Tasks = {
-  message: string;
-  data: {
-    id: number;
-    title: string;
-    userId: number;
-  }[];
-};
 
 // Retorna todas as tarefas
 export const getAllTasks = async (): Promise<Tasks> => {

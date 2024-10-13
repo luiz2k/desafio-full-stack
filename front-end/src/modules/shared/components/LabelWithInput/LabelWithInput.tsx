@@ -1,11 +1,6 @@
 import { forwardRef, useId } from "react";
-import type { InputHTMLAttributes } from "react";
 import s from "./LabelWithInput.module.css";
-
-export type InputProps = {
-  label: string;
-  warning?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+import { InputProps } from "./types";
 
 // Componente para renderizar label e input
 export const LabelWithInput = forwardRef<HTMLInputElement, InputProps>(

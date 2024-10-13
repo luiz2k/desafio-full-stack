@@ -11,12 +11,7 @@ import {
   UpdateTaskSchema,
 } from "../../schemas/updateTaskSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-type ActionsProps = {
-  id: number;
-  editTask: (id: number, newTitle: UpdateTaskSchema) => Promise<void>;
-  deleteTask: (id: number) => Promise<void>;
-};
+import { ActionsProps } from "./types";
 
 // Ações possíveis para uma tarefa
 export function Actions({ id, deleteTask, editTask }: ActionsProps) {
