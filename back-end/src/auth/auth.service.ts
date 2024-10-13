@@ -46,11 +46,6 @@ export class AuthService {
       id: userExists.id,
     });
 
-    return {
-      message: 'Usuário autenticado com sucesso',
-      data: {
-        accessToken: token,
-      },
-    };
+    return token;
   }
 }

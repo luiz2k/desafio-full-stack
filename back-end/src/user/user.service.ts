@@ -36,9 +36,6 @@ export class UserService {
       },
     });
 
-    return {
-      message: 'Usuário criado com sucesso',
-      data: user,
-    };
+    return user;
   }
 }

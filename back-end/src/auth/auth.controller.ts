@@ -11,6 +11,13 @@ export class AuthController {
   @UsePipes(new ZodValidationPipe(signInSchema))
   // Responsável pela autenticação do usuário
   signIn(@Body() signInDto: SignInDto) {
-    return this.authService.signIn(signInDto);
+    const token = this.authService.signIn(signInDto);
+
+    return {
+      message: 'Usuário autenticado com sucesso',
+      data: {
+        accessToken: token,
+      },
+    };
   }
 }

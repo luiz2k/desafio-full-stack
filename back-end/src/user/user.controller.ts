@@ -19,6 +19,11 @@ export class UserController {
   @UsePipes(new ZodValidationPipe(createUserSchema))
   // Cria um usuário
   async create(@Body() createUserDto: CreateUserDto) {
-    return await this.userService.create(createUserDto);
+    const user = await this.userService.create(createUserDto);
+
+    return {
+      message: 'Usuário criado com sucesso',
+      data: user,
+    };
   }
 }
