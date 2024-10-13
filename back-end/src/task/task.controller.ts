@@ -32,13 +32,23 @@ export class TaskController {
     @Request() req: Req,
     @Body(new ZodValidationPipe(createTaskSchema)) createTaskDto: CreateTaskDto,
   ) {
-    return this.taskService.create(req.user.id, createTaskDto);
+    const task = this.taskService.create(req.user.id, createTaskDto);
+
+    return {
+      message: 'Tarefa criada',
+      data: task,
+    };
   }
 
   @Get()
   // Obtém todas as tarefas de um usuário
   findAll(@Request() req: Req) {
-    return this.taskService.findAll(req.user.id);
+    const tasks = this.taskService.findAll(req.user.id);
+
+    return {
+      message: 'Tarefas encontradas',
+      data: tasks,
+    };
   }
 
   @Put(':id')
@@ -48,12 +58,26 @@ export class TaskController {
     @Request() req: Req,
     @Body(new ZodValidationPipe(updateTaskSchema)) updateTaskDto: UpdateTaskDto,
   ) {
-    return this.taskService.update(req.user.id, +id, updateTaskDto);
+    const updatedTask = this.taskService.update(
+      req.user.id,
+      +id,
+      updateTaskDto,
+    );
+
+    return {
+      message: 'Tarefa atualizada',
+      data: updatedTask,
+    };
   }
 
   @Delete(':id')
   // Faz a remoção de uma tarefa
   remove(@Request() req: Req, @Param('id') id: string) {
-    return this.taskService.remove(req.user.id, +id);
+    const deletedTask = this.taskService.remove(req.user.id, +id);
+
+    return {
+      message: 'Tarefa removida',
+      data: deletedTask,
+    };
   }
 }

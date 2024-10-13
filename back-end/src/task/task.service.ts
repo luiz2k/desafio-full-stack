@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
-import { PrismaService } from 'src/database/prisma.service';
+import { PrismaService } from '../database/prisma.service';
 import { UpdateTaskDto } from './dto/update-task.dto';
 
 @Injectable()
@@ -17,10 +17,7 @@ export class TaskService {
       },
     });
 
-    return {
-      message: 'Tarefa criada',
-      data: task,
-    };
+    return task;
   }
 
   // Obtém todas as tarefas de um usuário
@@ -32,10 +29,7 @@ export class TaskService {
       },
     });
 
-    return {
-      message: 'Tarefas encontradas',
-      data: tasks,
-    };
+    return tasks;
   }
 
   // Atualiza uma tarefa
@@ -64,10 +58,7 @@ export class TaskService {
       },
     });
 
-    return {
-      message: 'Tarefa atualizada',
-      data: updatedTask,
-    };
+    return updatedTask;
   }
 
   // Faz a remoção de uma tarefa
@@ -94,9 +85,6 @@ export class TaskService {
       },
     });
 
-    return {
-      message: 'Tarefa removida',
-      data: deletedTask,
-    };
+    return deletedTask;
   }
 }
