@@ -4,7 +4,6 @@ import { Modal } from "@/modules/shared/components/Modal/Modal";
 import { Pencil, Trash2 } from "lucide-react";
 import s from "./Actions.module.css";
 import { useState } from "react";
-import { deleteTask, editTask } from "../../actions";
 import { LabelWithInput } from "@/modules/shared/components/LabelWithInput/LabelWithInput";
 import { useForm } from "react-hook-form";
 import {
@@ -15,10 +14,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 type ActionsProps = {
   id: number;
+  editTask: (id: number, newTitle: UpdateTaskSchema) => Promise<void>;
+  deleteTask: (id: number) => Promise<void>;
 };
 
 // Ações possíveis para uma tarefa
-export function Actions({ id }: ActionsProps) {
+export function Actions({ id, deleteTask, editTask }: ActionsProps) {
   const [deleteModal, setDeleteModal] = useState(false);
 
   // Apaga uma tarefa
@@ -53,6 +54,7 @@ export function Actions({ id }: ActionsProps) {
     <div className={s.actions}>
       <button
         type="button"
+        aria-label="Editar tarefa"
         className={s.action}
         onClick={() => setEditModal(true)}
       >
@@ -78,6 +80,7 @@ export function Actions({ id }: ActionsProps) {
 
       <button
         type="button"
+        aria-label="Apagar tarefa"
         className={s.action}
         onClick={() => setDeleteModal(true)}
       >

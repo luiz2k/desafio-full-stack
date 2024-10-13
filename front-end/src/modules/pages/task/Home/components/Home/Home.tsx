@@ -1,10 +1,28 @@
+"use client";
+
 import Link from "next/link";
-import { getAllTasks } from "../../services/getAllTasks";
+import { useEffect, useState } from "react";
+import { UpdateTaskSchema } from "../../schemas/updateTaskSchema";
+import { Tasks } from "../../services/getAllTasks";
 import { Actions } from "../Actions/Actions";
 import s from "./Home.module.css";
 
-export default async function Home() {
-  const tasks = await getAllTasks();
+type HomeProps = {
+  getAllTasks: () => Promise<Tasks>;
+  deleteTask: (id: number) => Promise<void>;
+  editTask: (id: number, newTitle: UpdateTaskSchema) => Promise<void>;
+};
+
+export function Home({ getAllTasks, deleteTask, editTask }: HomeProps) {
+  const [tasks, setTasks] = useState<Tasks>({ message: "", data: [] });
+
+  useEffect(() => {
+    (async () => {
+      const tasks = await getAllTasks();
+
+      setTasks(tasks);
+    })();
+  }, [getAllTasks]);
 
   return (
     <section className={s.container}>
@@ -17,13 +35,17 @@ export default async function Home() {
       <div className={s.tasks_container}>
         <h3>Tarefas</h3>
 
-        {tasks.data.length ? (
+        {tasks?.data.length ? (
           <>
             {tasks.data.map((task) => (
               <article key={task.id} className={s.task_container}>
                 <p>{task.title}</p>
 
-                <Actions id={task.id} />
+                <Actions
+                  id={task.id}
+                  deleteTask={deleteTask}
+                  editTask={editTask}
+                />
               </article>
             ))}
           </>

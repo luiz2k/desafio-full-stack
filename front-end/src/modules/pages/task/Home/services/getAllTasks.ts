@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 const API_URL = process.env.API_URL;
 
-type Tasks = {
+export type Tasks = {
   message: string;
   data: {
     id: number;
@@ -12,7 +12,10 @@ type Tasks = {
   }[];
 };
 
+// Retorna todas as tarefas
 export const getAllTasks = async (): Promise<Tasks> => {
+  "use server";
+
   const response = await fetch(`${API_URL}/task`, {
     method: "GET",
     headers: {
