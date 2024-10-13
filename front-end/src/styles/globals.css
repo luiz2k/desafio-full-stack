@@ -18,6 +18,12 @@ a {
   }
 }
 
+input {
+  padding: 0.25rem;
+  border: none;
+  background-color: hsla(215, 16%, 47%, 0.25);
+}
+
 button {
   border: none;
   background-color: unset;
